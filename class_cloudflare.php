@@ -93,6 +93,48 @@ class cloudflare_api {
         );
         return $this->http_post($data);
     }
+    
+    /**
+     * 3.2 - Retrieve A Domain/Zone details
+     * This lists all domains in a CloudFlare account along with other data.
+     */
+    public function zone_load(domain) {
+        $data = array(
+            'a' => 'zone_load',
+            'z' => $domain
+        );
+        return $this->http_post($data);
+    }
+    
+    public function zone_deactivate($domain)
+    {
+        $data = array(
+            'a' => 'zone_deactivate',
+            "z" => $domain
+        );
+
+        return $this->http_post($data);
+    }
+    
+    public function zone_reactivate($domain)
+    {
+        $data = array(
+            'a' => 'zone_reactivate',
+            "z" => $domain
+        );
+
+        return $this->http_post($data);
+    }
+    
+    public function zone_delete($domain)
+    {
+        $data = array(
+            'a' => 'zone_delete',
+            "z" => $domain
+        );
+
+        return $this->http_post($data);
+    }
 
     /**
      * 3.3 - Retrieve DNS Records Of A Given Domain
